@@ -132,7 +132,6 @@ def win(bp, p, screen):
 
 
 def main():
-    # start = 0
     cap = cv2.VideoCapture(0)
 
     detector = HandDetectorClass()
@@ -150,33 +149,6 @@ def main():
         run, botPred = bot(screen, detector.pred)
         if not run:
             win(botPred, detector.pred, screen)
-
-        # cur = time()
-        # fps = 1 / (cur - start)
-        # cv2.putText(screen, str(int(fps)), (10, 70), cv2.FONT_HERSHEY_PLAIN, 3, (20, 20, 225), 3)
-        # print(int(fps))
-        # start = cur
-
-        # cv2.imshow('Camera Screen', cv2.flip(screen, 1))
-
-        # masks = []
-        # result = screen
-        # if detector.results.multi_hand_landmarks:
-        #     for lms in detector.results.multi_hand_landmarks:
-        #         for id, lm in enumerate(lms.landmark):
-        #             h, w, _ = screen.shape
-        #             cx, cy = int(lm.x * w), int(lm.y * h)
-        #             mask = np.zeros(screen.shape[:2], dtype="uint8")
-        #             cv2.circle(mask, (cx, cy), 10, 255, -1)
-        #             masks.append(mask)
-
-        #     if len(masks) > 0:
-        #         result = np.zeros(screen.shape[0:2], dtype='uint8')
-        #         for mask in masks:
-        #             result |= mask
-
-        # result = cv2.bitwise_and(screen, screen, mask=result)
-        # cv2.imshow('Masked', result)
         
         cv2.imshow('Camera Screen', screen)
 
